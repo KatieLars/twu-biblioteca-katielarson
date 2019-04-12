@@ -9,13 +9,11 @@ public class WelcomeTest {
     @Test
     public void welcomeMessageAppears() {
         //given
-        //a welcome object
-        Welcome welcome = new Welcome;
-        assertThat(welcome.greeting(), "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
+        Welcome welcome = new Welcome();
         //when
-        //a message method is called
-
+        String newGreeting = welcome.greeting();
         //then
-        //it returns the welcome message
+        assertThat(newGreeting, is("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!"));
+
     }
 }
