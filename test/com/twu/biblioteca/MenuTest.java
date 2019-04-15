@@ -34,6 +34,7 @@ public class MenuTest {
     public void shouldBeAbleToExitProgram() {
         Menu newMenu = new Menu();
         String readerSelection = "Quit";
+        assertThat(newMenu.validateOption(readerSelection), is("Exiting ..."));
 
     }
 

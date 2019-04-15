@@ -39,10 +39,8 @@ public class Menu {
                 break;
             case "Quit":
                 System.out.println("Exiting . . .");
-
                 System.exit(0);
-                return "Exiting ..."
-                break;
+                return "Exiting ...";
                 //should quit program
             default:
                 System.out.println("Please select a valid option!");
