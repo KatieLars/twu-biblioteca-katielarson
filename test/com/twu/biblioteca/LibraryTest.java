@@ -8,12 +8,11 @@ public class LibraryTest {
     @Test
     public void shouldGetAllBooksInLibrary() {
         //given
-        String[] manualLibrary = new String[]{"Don Quixote", "Les Fleurs du Mal", "War and Peace"};
+//        String[] manualLibrary = new String[]{"Don Quixote", "Les Fleurs du Mal", "War and Peace"};
         Library library = new Library();
         //when
-        library.setAllBooks();
         //then
-        assertThat(library.getAllBooks(), is(manualLibrary));
+        assertThat(library.displayAllBooks(), is("Charles Baudelaire Les Fleurs du Mal 1876 | "));
 
     }
 }

@@ -1,22 +1,30 @@
 package com.twu.biblioteca;
+import java.util.List;
 
-import java.lang.reflect.Array;
 
 public class Library {
 
-    private String[] allBooks;
+    private List<Book> allBooks;
+
+    public Library() {
+        //this should instantiate all the Book objects
+    }
+
 
     public void setAllBooks() {
         //setter
-        this.allBooks = new String[]{"Don Quixote", "Les Fleurs du Mal", "War and Peace"};
+//        this.allBooks = new String[]{"Don Quixote", "Les Fleurs du Mal", "War and Peace"};
+
     }
 
-    public String[] getAllBooks() {
-        //getter
-        for (String book : this.allBooks) {
-            System.out.println(book);
+    public String displayAllBooks() {
+        String newDisplay = "" ;
+        for (Book book : this.allBooks) {
+            System.out.println(book.displayAllBookInfo());
+            return newDisplay + book.displayAllBookInfo();
         }
-        return this.allBooks;
+        return newDisplay;
+
     }
 
 }

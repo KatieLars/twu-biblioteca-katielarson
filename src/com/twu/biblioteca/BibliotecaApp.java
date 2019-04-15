@@ -6,7 +6,7 @@ public class BibliotecaApp {
         Welcome newWelcome = new Welcome();
         newWelcome.greeting();
         Library library = new Library();
-        library.setAllBooks();
-        library.getAllBooks();
+
+        library.displayAllBooks();
     }
 }
