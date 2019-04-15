@@ -35,11 +35,10 @@ public class Menu {
         switch(readerSelection) {
             case "List of Books":
                 Library newLibrary = new Library();
-                newLibrary.displayAllBooks();
-                break;
+                return newLibrary.displayAllBooks();
             case "Quit":
                 System.out.println("Exiting . . .");
-                System.exit(0);
+                //System.exit(0);
                 return "Exiting ...";
                 //should quit program
             default:
@@ -48,7 +47,7 @@ public class Menu {
                 return "Please select a valid option!";
         }
 
-        return readerSelection;
+
     }
 
 }
