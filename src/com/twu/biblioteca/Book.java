@@ -4,9 +4,9 @@ public class Book {
 
     public String author;
     public String title;
-    public double publicationDate;
+    public int publicationDate;
 
-    public Book (String author, String title, double publicationDate) {
+    public Book (String author, String title, int publicationDate) {
         this.author = author;
         this.title = title;
         this.publicationDate = publicationDate;
@@ -14,9 +14,9 @@ public class Book {
 
 
     public String displayAllBookInfo() {
-        System.out.println(this.title + " " + this.author + " " + this.publicationDate + " | ");
+        System.out.println(this.author + " " + this.title + " " + this.publicationDate + " | ");
                 //this returns a single line of all info for that book
-        return this.title + " " + this.author + " " + this.publicationDate + " | ";
+        return this.author+ " " + this.title + " " + this.publicationDate + " | ";
     }
 
 }
