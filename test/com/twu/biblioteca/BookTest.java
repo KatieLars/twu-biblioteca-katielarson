@@ -53,5 +53,16 @@ public class BookTest {
         assertThat(newBook.checkOut(), is("Thank you! Enjoy the book"));
     }
 
+    @Test
+    public void customerCanReturnBook() {
+        //givem
+        Book newBook = new Book("Charles Baudelaire", "Les Fleurs du Mal", 1876);
+        //when
+        newBook.checkOut();
+        newBook.returnBook();
+        assertThat(newBook.isCheckedOut, is(false));
+
+    }
+
 }
 

@@ -34,7 +34,7 @@ public class Library {
         return newDisplay;
     }
 
-    public Boolean isBookAvailable(String userInput) {
+    public Boolean isBookAvailable(String userInput) { //working
         //returns true if book is in library and is not checked out
         for (Book book : this.allBooks) {
             if (book.title.equals(userInput) && !book.isCheckedOut) {
@@ -44,13 +44,12 @@ public class Library {
         return false;
     }
 
-    public Boolean isBookInLibrary(String userInput) {
-        for (Book book : this.allBooks) {
-            if (book.title.equals(userInput)) {
-                return true;
-            }
+    public String messageBookIsUnavailable(String userInput) {
+        if (!this.isBookAvailable(userInput)) {
+            //System.out.println("Sorry, this book is not available");
+            return "Sorry, that book is not available";
         }
-        return false;
+        return "Oops! Why is this available?";
     }
 
 }

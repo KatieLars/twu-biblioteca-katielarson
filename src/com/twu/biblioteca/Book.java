@@ -31,8 +31,13 @@ public class Book {
 
     public String checkOut() {
         this.isCheckedOut = true;
-        System.out.println("Thank you! Enjoy the book");
+        //System.out.println("Thank you! Enjoy the book");
         return "Thank you! Enjoy the book";
+    }
+
+    public String returnBook() {
+        this.isCheckedOut = false;
+        return "Thank you for returning the book";
     }
 
 }
