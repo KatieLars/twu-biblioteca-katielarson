@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -23,15 +24,23 @@ public class LibraryTest {
     public void findsAvailableRequestedBook() {
         String userInput = "Les Fleurs du Mal";
         Library newLibrary = new Library();
-        assertThat(newLibrary.displayAllBooks(), containsString(userInput));
+        assertThat(newLibrary.displayAvailableBooks(), containsString(userInput));
     }
 
     @Test
-    public void cannotFindUnavailableBook() {
-        //if the user enters an invalid answer, returns a message
+    public void cannotFindUnknownBook() {
         String userInput = "La Peste";
         Library newLibrary = new Library();
+        //assertThat(newLibrary.displayAvailableBooks(), not(containsString("La Peste")));
+        assertThat(newLibrary.isBookInLibrary(userInput), is(false));
+    }
 
+    @Test
+    public void cannotCheckOutUnavailableBook() {
+        String userInput = "Don Quixote";
+        Library newLibrary = new Library();
+        assertThat(newLibrary.isBookAvailable(userInput), is(false));
 
     }
+
 }

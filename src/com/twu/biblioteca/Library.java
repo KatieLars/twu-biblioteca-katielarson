@@ -33,4 +33,24 @@ public class Library {
         }
         return newDisplay;
     }
+
+    public Boolean isBookAvailable(String userInput) {
+        //returns true if book is in library and is not checked out
+        for (Book book : this.allBooks) {
+            if (book.title.equals(userInput) && !book.isCheckedOut) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Boolean isBookInLibrary(String userInput) {
+        for (Book book : this.allBooks) {
+            if (book.title.equals(userInput)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

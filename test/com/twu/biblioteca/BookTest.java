@@ -53,10 +53,5 @@ public class BookTest {
         assertThat(newBook.checkOut(), is("Thank you! Enjoy the book"));
     }
 
-    @Test
-    public void cannotCheckoutUnavailableBook() {
-        //works for both unavailable or unknown (typo) books
-    }
-
 }
 
