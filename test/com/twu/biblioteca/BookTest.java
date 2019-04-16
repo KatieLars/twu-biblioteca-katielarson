@@ -64,5 +64,13 @@ public class BookTest {
 
     }
 
+    @Test
+    public void shouldReceiveSuccessfulReturnMessage() {
+        //givem
+        Book newBook = new Book("Miguel de Cervantes", "Don Quixote", 1605);
+        //when
+        assertThat(newBook.returnBook(), is("Thank you for returning the book"));
+    }
+
 }
 
