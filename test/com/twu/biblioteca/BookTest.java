@@ -31,12 +31,31 @@ public class BookTest {
     }
 
     @Test
+    public void bookIsAvailable() {
+        Book newBook = new Book("Charles Baudelaire", "Les Fleurs du Mal", 1876);
+        assertThat(newBook.isCheckedOut, is(false));
+    }
+
+    @Test
     public void customerCanCheckOutBook() {
         //given
         Book newBook = new Book("Charles Baudelaire", "Les Fleurs du Mal", 1876);
         //when
-        assertThat(newBook.checkOut(), is(true));
+        newBook.checkOut();
+        assertThat(newBook.isCheckedOut, is(true));
+    }
 
+    @Test
+    public void shouldReceiveSuccessfulCheckOutMessage() {
+        //given
+        Book newBook = new Book("Charles Baudelaire", "Les Fleurs du Mal", 1876);
+        //when
+        assertThat(newBook.checkOut(), is("Thank you! Enjoy the book"));
+    }
+
+    @Test
+    public void cannotCheckoutUnavailableBook() {
+        //works for both unavailable or unknown (typo) books
     }
 
 }

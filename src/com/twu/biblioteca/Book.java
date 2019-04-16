@@ -29,9 +29,10 @@ public class Book {
         //this.validateBookOption(newInput); eventually will validate that this book is available
     }
 
-    public Boolean checkOut() {
+    public String checkOut() {
         this.isCheckedOut = true;
-        return this.isCheckedOut;
+        System.out.println("Thank you! Enjoy the book");
+        return "Thank you! Enjoy the book";
     }
 
 }

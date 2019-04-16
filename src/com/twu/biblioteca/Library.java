@@ -10,12 +10,11 @@ public class Library {
     public Library() {
         //this should instantiate all the Book objects - should be a query eventually
         Book newBook = new Book("Charles Baudelaire", "Les Fleurs du Mal", 1876);
-        //Book secondBook = new Book("Miguel de Cervantes", "Don Quixote", 1605);
+        Book secondBook = new Book("Miguel de Cervantes", "Don Quixote", 1605);
+        secondBook.checkOut();
         allBooks.add(newBook);
-        //this.allBooks.add(secondBook);
-
+        this.allBooks.add(secondBook);
     }
-
 
     public String displayAllBooks() {
         String newDisplay = "" ;
@@ -23,7 +22,15 @@ public class Library {
             newDisplay = newDisplay + book.displayAllBookInfo();
         }
         return newDisplay;
-
     }
 
+    public String displayAvailableBooks() {
+        String newDisplay = "" ;
+        for (Book book : this.allBooks) {
+            if (!book.isCheckedOut) {
+                newDisplay = newDisplay + book.displayAllBookInfo();
+            }
+        }
+        return newDisplay;
+    }
 }

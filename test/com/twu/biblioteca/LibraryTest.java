@@ -8,32 +8,30 @@ import static org.hamcrest.CoreMatchers.is;
 
 public class LibraryTest {
     @Test
-    public void shouldGetAllBooksInLibrary() {
-        //given
+    public void shouldGetAllBooksInLibrary() { //displays all books in library
         Library library = new Library();
-        //when
-        //then
-        assertThat(library.displayAllBooks(), is("Charles Baudelaire Les Fleurs du Mal 1876 | "));
-
+        assertThat(library.displayAllBooks(), is("Charles Baudelaire Les Fleurs du Mal 1876 | Miguel de Cervantes Don Quixote 1605 | "));
     }
 
+    @Test
     public void doesNotDisplayCheckedOutBooks() {
-        //checks to see if a checked out book is displayed
-    }
-
-    public void findsAvailableRequestedBook() {
-        //given
-        String userInput = "Les Fleurs du Mal";
-        //when
         Library newLibrary = new Library();
-        //then
-        assertThat(newLibrary.displayAllBooks(), containsString(userInput));
-        //also serves as a validation point
-        //runs checkOut on Book object
+        assertThat(newLibrary.displayAvailableBooks(), is("Charles Baudelaire Les Fleurs du Mal 1876 | "));
     }
 
+    @Test
+    public void findsAvailableRequestedBook() {
+        String userInput = "Les Fleurs du Mal";
+        Library newLibrary = new Library();
+        assertThat(newLibrary.displayAllBooks(), containsString(userInput));
+    }
+
+    @Test
     public void cannotFindUnavailableBook() {
         //if the user enters an invalid answer, returns a message
+        String userInput = "La Peste";
+        Library newLibrary = new Library();
+
 
     }
 }
