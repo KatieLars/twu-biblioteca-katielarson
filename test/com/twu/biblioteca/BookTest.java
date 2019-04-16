@@ -30,5 +30,14 @@ public class BookTest {
         assertThat(newBook.displayAllBookInfo(), is("Charles Baudelaire Les Fleurs du Mal 1876 | "));
     }
 
+    @Test
+    public void customerCanCheckOutBook() {
+        //given
+        Book newBook = new Book("Charles Baudelaire", "Les Fleurs du Mal", 1876);
+        //when
+        assertThat(newBook.checkOut(), is(true));
+
+    }
+
 }
 
