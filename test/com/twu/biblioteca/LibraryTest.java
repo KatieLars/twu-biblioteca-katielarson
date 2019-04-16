@@ -24,21 +24,21 @@ public class LibraryTest {
     public void findsAvailableRequestedBook() {
         String userInput = "Les Fleurs du Mal";
         Library newLibrary = new Library();
-        assertThat(newLibrary.isBookAvailable(userInput), is(true));
+        assertThat(newLibrary.isBookAvailableForCheckOut(userInput), is(true));
     }
 
     @Test
     public void cannotFindUnknownBook() {
         String userInput = "La Peste";
         Library newLibrary = new Library();
-        assertThat(newLibrary.isBookAvailable(userInput), is(false));
+        assertThat(newLibrary.isBookAvailableForCheckOut(userInput), is(false));
     }
 
     @Test
     public void cannotCheckOutUnavailableBook() {
         String userInput = "Don Quixote";
         Library newLibrary = new Library();
-        assertThat(newLibrary.isBookAvailable(userInput), is(false));
+        assertThat(newLibrary.isBookAvailableForCheckOut(userInput), is(false));
 
     }
 
@@ -56,5 +56,37 @@ public class LibraryTest {
         Library newLibrary = new Library();
         assertThat(newLibrary.messageBookIsUnavailable(userInput), is("Sorry, that book is not available"));
     }
+
+    @Test
+    public void isUnknownBookAbleToBeReturned() {
+        String userInput = "La Peste";
+        Library anotherLibrary = new Library();
+        assertThat(anotherLibrary.canBookBeCheckedIn(userInput), is(false));
+
+    }
+
+    @Test
+    public void isAvailableBookAbleToBeReturned() {
+        String userInput = "Les Fleurs du Mal";
+        Library anotherLibrary = new Library();
+        assertThat(anotherLibrary.canBookBeCheckedIn(userInput), is(false));
+    }
+
+    @Test
+    public void isCheckOutBookAbleToBeReturned() {
+        String userInput = "Don Quixote";
+        Library anotherLibrary = new Library();
+        assertThat(anotherLibrary.canBookBeCheckedIn(userInput), is(true));
+    }
+
+
+    @Test
+    public void errorMessageForUnknownBookReturn() {
+        String userInput = "La Peste";
+        Library anotherLibrary = new Library();
+        assertThat(anotherLibrary.messageBookCannotBeReturned(userInput), is("That is not a valid book to return."));
+
+    }
+
 
 }

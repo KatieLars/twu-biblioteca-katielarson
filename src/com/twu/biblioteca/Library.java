@@ -34,10 +34,12 @@ public class Library {
         return newDisplay;
     }
 
-    public Boolean isBookAvailable(String userInput) { //working
+    public Boolean isBookAvailableForCheckOut(String userInput) {
         //returns true if book is in library and is not checked out
+        //will be checked out.
         for (Book book : this.allBooks) {
             if (book.title.equals(userInput) && !book.isCheckedOut) {
+                book.checkOut();
                 return true;
             }
         }
@@ -45,11 +47,29 @@ public class Library {
     }
 
     public String messageBookIsUnavailable(String userInput) {
-        if (!this.isBookAvailable(userInput)) {
+        if (!this.isBookAvailableForCheckOut(userInput)) {
             //System.out.println("Sorry, this book is not available");
             return "Sorry, that book is not available";
         }
         return "Oops! This shouldn't be available";
+    }
+
+    public Boolean canBookBeCheckedIn(String userInput) { //checks if book is either in
+        for (Book book : this.allBooks) {
+            if (book.title.equals(userInput) && book.isCheckedOut) { //book is in library and is checked out
+                book.returnBook();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String messageBookCannotBeReturned(String userInput) {
+        if(!canBookBeCheckedIn(userInput)) {
+            //System.out.println("Sorry, this book is not available");
+            return "That is not a valid book to return.";
+        }
+        return "Oops! This should be able to be returned";
     }
 
 }
